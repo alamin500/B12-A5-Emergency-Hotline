@@ -1,0 +1,533 @@
+/* Reset and Base Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  line-height: 1.6;
+  color: #333;
+  background-color: #f8f9fa;
+}
+
+/* Navbar Styles */
+.navbar {
+  background: #fff;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.nav-container {
+  margin: 0 auto;
+  padding: 1rem 60px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.nav-left .logo {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.logo-img {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+}
+
+.logo-text {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #2d5016;
+}
+
+.nav-right {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.nav-item-copy {
+    display: flex;
+        align-items: center;
+        gap: 0.5rem;
+          background: #27ae60;
+          padding: 10px 20px;
+          border-radius: 50px;
+          height: 46px;
+}
+.nav-item {
+    display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        background: #41ff6b47;
+        padding: 10px 20px;
+        border-radius: 50px;
+        height: 46px;
+}
+
+.heart-icon {
+  color: #e74c3c;
+  font-size: 1.2rem;
+}
+
+.coin-icon {
+  color: #f39c12;
+  font-size: 1.2rem;
+}
+
+.count {
+  font-weight: 600;
+  color: #333;
+}
+
+.copy-count-btn {
+    background: #27ae60;
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 5px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-weight: 500;
+  transition: background-color 0.3s;
+}
+
+.copy-count-btn:hover {
+  background: #229954;
+}
+
+/* Hero Section */
+.hero {
+  background: linear-gradient(90deg, #013223 0%, #4a7c59 50%, #013223 100%);
+  color: white;
+  padding: 1.5rem 2rem;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grain" width="100" height="100" patternUnits="userSpaceOnUse"><circle cx="50" cy="50" r="1" fill="rgba(255,255,255,0.1)"/></pattern></defs><rect width="100" height="100" fill="url(%23grain)"/></svg>');
+  opacity: 0.3;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+
+  margin: 0 auto;
+}
+
+.hero-logo {
+  margin-bottom: 1rem;
+}
+
+.hero-logo-img {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  border: 3px solid rgba(255, 255, 255, 0.3);
+}
+
+.hero-title {
+  font-size: 2rem;
+  font-weight: 500;
+  margin-bottom: 0rem;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.hero-slogan {
+  font-size: 1.1rem;
+  margin: 0 auto;
+  line-height: 1.8;
+}
+
+/* Main Section */
+.main-section {
+  padding: 3rem 2rem;
+  max-width: 1800px;
+  margin: 0 auto;
+}
+
+.main-container {
+  display: grid;
+  grid-template-columns: 3fr 1fr;
+  gap: 2rem;
+  align-items: start;
+}
+
+/* Card Section */
+.card-section {
+  background: #f8f9fa;
+}
+
+.cards-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+}
+@media (max-width: 1200px) {
+  .cards-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media (max-width: 860px) {
+  .cards-grid {
+    grid-template-columns: repeat(1, 1fr);
+  }
+}
+.emergency-card {
+  background: white;
+  border-radius: 12px;
+  padding: 1.5rem;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s, box-shadow 0.3s;
+  position: relative;
+}
+
+.emergency-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+.card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 1rem;
+}
+
+.card-icon {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  color: white;
+}
+
+.card-heart {
+  background: none;
+  border: none;
+  font-size: 1.2rem;
+  color: #ddd;
+  cursor: pointer;
+  transition: color 0.3s;
+}
+
+.card-heart:hover,
+.card-heart.liked {
+  color: #e74c3c;
+}
+
+.card-content {
+  margin-bottom: 1.5rem;
+}
+
+.card-title {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: #2c3e50;
+  margin-bottom: 0.5rem;
+}
+
+.card-subtitle {
+  font-size: 0.9rem;
+  color: #7f8c8d;
+  margin-bottom: 1rem;
+}
+
+.card-number {
+  font-size: 1.8rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  font-family: "Courier New", monospace;
+}
+
+.card-category {
+  display: inline-block;
+  background: #ecf0f1;
+  color: #2c3e50;
+  padding: 0.3rem 0.8rem;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: 500;
+  margin-bottom: 1.5rem;
+}
+
+.card-actions {
+  display: flex;
+  gap: 0.8rem;
+}
+
+.btn {
+  flex: 1;
+  padding: 0.8rem 1rem;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  transition: all 0.3s;
+  text-decoration: none;
+}
+
+.btn-copy {
+  background: white;
+  color: #7f8c8d;
+  border: 2px solid #bdc3c7;
+}
+
+.btn-copy:hover {
+  background: #f8f9fa;
+  border-color: #95a5a6;
+}
+
+.btn-call {
+  background: #27ae60;
+  color: white;
+}
+
+.btn-call:hover {
+  background: #229954;
+}
+
+.btn-call:disabled {
+  background: #bdc3c7;
+  cursor: not-allowed;
+}
+
+/* History Section */
+.history-section {
+  min-width: 300px;
+  background: white;
+  border-radius: 12px;
+  padding: 1.5rem;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  height: fit-content;
+  position: sticky;
+  top: 100px;
+  height: 100%;
+}
+
+.history-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+  padding-bottom: 1rem;
+  border-bottom: 2px solid #ecf0f1;
+}
+
+.history-title {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #2c3e50;
+}
+
+.history-title i {
+  color: #3498db;
+}
+
+.clear-btn {
+    background: #27ae60;
+    padding: 10px 20px;
+    border-radius: 50px;
+  color: white;
+  border: none;
+  padding: 1rem 2rem;
+  cursor: pointer;
+  font-weight: 500;
+  transition: background-color 0.3s;
+}
+
+.clear-btn:hover {
+  background: #c0392b;
+}
+
+.history-content {
+  max-height: 400px;
+  overflow-y: auto;
+}
+
+.empty-history {
+  text-align: center;
+  color: #7f8c8d;
+  padding: 2rem;
+}
+
+.empty-history i {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  opacity: 0.5;
+}
+
+.history-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+  transition: background-color 0.3s;
+  background: #f8f9fa;
+  border-radius: 12px;
+  margin-bottom: 8px;
+}
+
+.history-item:hover {
+  background: #f8f9fa;
+}
+
+.history-item:last-child {
+  border-bottom: none;
+}
+
+.history-info {
+  flex: 1;
+}
+
+.history-service {
+  font-weight: 600;
+  color: #2c3e50;
+  margin-bottom: 0.2rem;
+}
+
+.history-number {
+  font-family: "Courier New", monospace;
+  color: #27ae60;
+  font-weight: 500;
+}
+
+.history-time {
+  font-size: 0.8rem;
+  color: #7f8c8d;
+  text-align: right;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .nav-container {
+    padding: 1rem;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .nav-right {
+    gap: 1rem;
+  }
+
+  .hero {
+    padding: 2rem 1rem;
+  }
+
+  .hero-title {
+    font-size: 2rem;
+  }
+
+  .hero-slogan {
+    font-size: 1rem;
+  }
+
+  .main-container {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .cards-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .history-section {
+    position: static;
+  }
+
+  .main-section {
+    padding: 2rem 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .nav-right {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .copy-count-btn {
+    padding: 0.4rem 0.8rem;
+    font-size: 0.9rem;
+  }
+
+  .hero-title {
+    font-size: 1.8rem;
+  }
+
+  .emergency-card {
+    padding: 1rem;
+  }
+
+  .card-actions {
+    flex-direction: column;
+  }
+
+  .btn {
+    padding: 0.7rem;
+  }
+}
+
+/* Animation for heart like */
+@keyframes heartBeat {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.2);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.card-heart.liked {
+  animation: heartBeat 0.6s ease-in-out;
+}
+
+/* Scrollbar Styling */
+.history-content::-webkit-scrollbar {
+  width: 6px;
+}
+
+.history-content::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 3px;
+}
+
+.history-content::-webkit-scrollbar-thumb {
+  background: #c1c1c1;
+  border-radius: 3px;
+}
+
+.history-content::-webkit-scrollbar-thumb:hover {
+  background: #a8a8a8;
+}
