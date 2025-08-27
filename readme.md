@@ -128,19 +128,11 @@ You have to create a `Readme.md` file. and write down following questions. Dont 
 **2. Creating and inserting a new element into the DOM:**
 
 ```javascript
-// Method 1: Create element and append
+ Create element and append
 const newElement = document.createElement('div');
 newElement.textContent = 'New Element';
 newElement.className = 'new-class';
 document.body.appendChild(newElement);
-
-// Method 2: Using insertBefore
-const parent = document.getElementById('parent');
-const referenceNode = document.getElementById('reference');
-parent.insertBefore(newElement, referenceNode);
-
-// Method 3: Using innerHTML (less secure)
-document.getElementById('container').innerHTML += '<div>New Element</div>';
 ```
 
 **3. Event Bubbling:**

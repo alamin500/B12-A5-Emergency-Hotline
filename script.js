@@ -142,7 +142,7 @@ function updateUI() {
   coinCountEl.textContent = coinCount;
   copyCountEl.textContent = copyCount;
 
-  copyCountBtn.innerHTML = `<i class="fas fa-copy"></i><span>${copyCount} Copy</span>`;
+  copyCountBtn.innerHTML = `<span>${copyCount} Copy</span>`;
 
   // Update call button states
   document.querySelectorAll(".btn-call").forEach((btn) => {
