@@ -116,6 +116,86 @@ You have to create a `Readme.md` file. and write down following questions. Dont 
 4. What is **Event Delegation** in JavaScript? Why is it useful?
 5. What is the difference between **preventDefault() and stopPropagation()** methods?
 
+#### Answers:
+
+**1. Difference between getElementById, getElementsByClassName, and querySelector/querySelectorAll:**
+
+- **getElementById()**: Returns a single element with the specified ID. IDs must be unique, so it returns only one element or null if not found. Fastest method.
+- **getElementsByClassName()**: Returns a live HTMLCollection of elements with the specified class name. Returns multiple elements or empty collection if none found.
+- **querySelector()**: Returns the first element that matches the CSS selector. More flexible as it accepts any valid CSS selector. Returns null if no match.
+- **querySelectorAll()**: Returns a static NodeList of all elements that match the CSS selector. Returns empty NodeList if no matches found.
+
+**2. Creating and inserting a new element into the DOM:**
+
+```javascript
+// Method 1: Create element and append
+const newElement = document.createElement('div');
+newElement.textContent = 'New Element';
+newElement.className = 'new-class';
+document.body.appendChild(newElement);
+
+// Method 2: Using insertBefore
+const parent = document.getElementById('parent');
+const referenceNode = document.getElementById('reference');
+parent.insertBefore(newElement, referenceNode);
+
+// Method 3: Using innerHTML (less secure)
+document.getElementById('container').innerHTML += '<div>New Element</div>';
+```
+
+**3. Event Bubbling:**
+
+Event bubbling is the process where an event triggered on a nested element "bubbles up" through its parent elements in the DOM tree. When an event occurs on a child element, it first triggers on that element, then on its parent, then on the parent's parent, and so on up to the document root.
+
+Example:
+```javascript
+// Clicking on <span> triggers events on span → div → body → document
+<div onclick="console.log('div clicked')">
+  <span onclick="console.log('span clicked')">Click me</span>
+</div>
+// Output: "span clicked" then "div clicked"
+```
+
+**4. Event Delegation:**
+
+Event delegation is a technique where you attach an event listener to a parent element instead of multiple child elements. The parent element handles events for all its children using event bubbling.
+
+**Why it's useful:**
+- Reduces memory usage (fewer event listeners)
+- Works with dynamically added elements
+- Better performance for many elements
+- Cleaner code maintenance
+
+Example:
+```javascript
+// Instead of adding listeners to each button
+document.getElementById('container').addEventListener('click', function(e) {
+  if (e.target.matches('button')) {
+    console.log('Button clicked:', e.target.textContent);
+  }
+});
+```
+
+**5. Difference between preventDefault() and stopPropagation():**
+
+- **preventDefault()**: Prevents the default behavior of an event (e.g., preventing form submission, link navigation, or context menu). The event still bubbles up to parent elements.
+
+- **stopPropagation()**: Stops the event from bubbling up to parent elements. The default behavior still occurs, but parent elements won't receive the event.
+
+Example:
+```javascript
+// preventDefault: stops form submission but event bubbles up
+form.addEventListener('submit', function(e) {
+  e.preventDefault(); // Form won't submit
+  // Parent elements still receive the event
+});
+
+// stopPropagation: allows default behavior but stops bubbling
+button.addEventListener('click', function(e) {
+  e.stopPropagation(); // Button click works, but parent won't receive event
+});
+```
+
 ---
 
 ## 🧪 Challenges Part (10 Marks)
